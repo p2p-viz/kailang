@@ -1,11 +1,7 @@
-let facto = n : n == 0? 1 : n * facto(n - 1)
+let fibo = a.Int -> b.Int -> cnt.UInt -> {
+  if(cnt==0, <a, b> )
+  let _ = print(f("[%d]: %d\n", <cnt, a>))
 
-let a = "Hell Kill Me!"
+  fibo(b, a+b, cnt - 1)
 
-let addTwoNums = a : b : {
-    let sum = a + b 
-    
-    sum
 }
-
-addTwoNums(2, 3)

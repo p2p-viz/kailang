@@ -14,10 +14,23 @@
 
 // macros
 
-#define KAI_AST_NODE_FUNCTION       0x5415
-#define KAI_AST_NODE_SCOPE          0x5416
-#define KAI_AST_NODE_EXPRESSION     0x5417
-#define KAI_AST_NODE_CONSTANT       0x5418
+#define KAI_AST_NODE_LET            1
+#define KAI_AST_NODE_FUNCTION       2
+#define KAI_AST_NODE_SCOPE          3
+#define KAI_AST_NODE_EXPRESSION     4
+#define KAI_AST_NODE_CONSTANT       5
+#define KAI_AST_NODE_IDENTIFIER     6
+#define KAI_AST_NODE_LITERAL        7
+#define KAI_AST_NODE_OPERATOR       8
+
+#define KAI_TOKEN_TYPE_FLOAT         6
+#define KAI_TOKEN_TYPE_STRING        7
+#define KAI_TOKEN_TYPE_IDENTIFIER    8
+#define KAI_TOKEN_TYPE_OPERATOR      9
+#define KAI_TOKEN_TYPE_SEPERATOR     10
+#define KAI_TOKEN_TYPE_WHITESPACE    11
+#define KAI_TOKEN_TYPE_UNKNOWN       12
+#define KAI_TOKEN_TYPE_INT           13
 
 #define KAI_VERBOSE_PRINT(...) if(verbose) { printf("VERBOSE: "); printf(__VA_ARGS__); }
 
@@ -35,6 +48,7 @@ struct KAI_CMDArgs
 
 struct KAI_ASTNode
 {
+    char name[1024];
     struct KAI_ASTNode* childrenNodes[4096];
     int childrenNodeCount;
     int id;
@@ -44,6 +58,8 @@ struct KAI_ASTNode
 struct KAI_Context
 {
     int globalId;
+    int brackEscape;
+    int angleEscape;
 };
 
 // functions
