@@ -9,5 +9,5 @@ include_directories(include)
 
 add_executable(kaicc
     ./source/main.c
-    
+    ./source/compiler.c    
 )
