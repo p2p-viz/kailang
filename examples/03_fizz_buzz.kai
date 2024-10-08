@@ -1,0 +1,8 @@
+import std.io as io
+import std.types as types
+
+main = args [types.string] : IO(
+  input <- io.readLine,
+  num = types.parseNumber (input)
+  
+)

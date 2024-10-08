@@ -1,0 +1,6 @@
+import std.io as io
+import std.types as types
+
+main = args [types.string] : IO(
+    io.printlnIO("Hello World")
+)

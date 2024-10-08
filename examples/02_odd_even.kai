@@ -1,0 +1,12 @@
+import std.io as io
+import std.types as types
+
+pub isEven = num : mod num 2 == 0
+
+main = args [types.string] : IO(
+  input <- io.readLine,
+  num = types.parseNumber (input),
+  if isEven num
+    io.println "The number {input} is even"
+    io.println "The number {input} is odd"
+)
